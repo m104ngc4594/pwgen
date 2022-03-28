@@ -3,7 +3,7 @@
 ## Overview
 pwgen is a password generator for the command line written in Go. It works on all major desktop and server operating systems (Linux, MacOS, BSD, Windows). 
 
-pwgen generates passwords based on a set of rules, which by default include all uppercase characters, lowercase characters, numbers, symbols, and each password has 20 length.
+pwgen generates a total of 60 passwords based on a set of rules, which by default include all uppercase characters, lowercase characters, numbers, symbols, and each password has 20 length.
 
 pwgen is derived from the gopass command which does not meet my needs for generated password strength, so for security reasons I developed my own pwgen. 
 
@@ -32,10 +32,34 @@ go install gitee.com/m104/pwgen
 go install github.com/m104ngc4594/pwgen
 ```
 
+#### Copy the Configuration file with the Binaries
+
+You should copy the `config.toml` file with the above Binaries.  
+
 ## Usage
 
 ### Generate password from the command line
 ```
 pwgen
 ```
-It will generate 60 passwords each line by default. 
+
+### Configuration
+
+Open up config.toml in a text editor:
+```
+# The length of the password.
+length = 20
+# Whether to include uppercase characters.
+uppercase = true
+# Whether to include lowercase characters.
+lowercase = true
+# Whether to include numbers.
+numbers = true
+# Whether to include symbols.
+symbols = true
+# A string of characters to exclude from the password.
+exclude = ""
+# The numbers of the password generated.
+nums = 60
+```
+Replace the value above with something more personal. 
