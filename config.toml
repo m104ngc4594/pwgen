@@ -1,0 +1,14 @@
+# The length of the password.
+length = 20
+# Whether to include uppercase characters.
+uppercase = true
+# Whether to include lowercase characters.
+lowercase = true
+# Whether to include numbers.
+numbers = true
+# Whether to include symbols.
+symbols = true
+# A string of characters to exclude from the password.
+exclude = ""
+# The numbers of the password generated.
+nums = 60

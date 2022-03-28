@@ -3,9 +3,12 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"math/rand"
 	"strings"
 	"time"
+
+	"github.com/spf13/viper"
 )
 
 // The characters used in generated passwords.
@@ -26,9 +29,28 @@ type Generator struct {
 	nums      int    // The numbers of the password generated.
 }
 
+// load the password generator from config.toml if exits.
+func loadConfig(g *Generator) {
+	viper.SetConfigName("config") // name of config file
+	viper.AddConfigPath(".")      // optionally look for config in the working directory
+	err := viper.ReadInConfig()   // Find and read the config file
+	if err != nil {               // Handle errors reading the config file
+		log.Println(err)
+		return
+	}
+	g.length = viper.GetInt("length")
+	g.uppercase = viper.GetBool("uppercase")
+	g.lowercase = viper.GetBool("lowercase")
+	g.numbers = viper.GetBool("numbers")
+	g.symbols = viper.GetBool("symbols")
+	g.exclude = viper.GetString("exclude")
+	g.nums = viper.GetInt("nums")
+}
+
 // NewGenerator creates a new password generator.
 func NewGenerator() *Generator {
 	g := Generator{20, true, true, true, true, "", 60}
+	loadConfig(&g)
 	return &g
 }
 
