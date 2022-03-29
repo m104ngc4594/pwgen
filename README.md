@@ -5,7 +5,7 @@ pwgen is a password generator for the command line written in Go. It works on al
 
 pwgen generates a total of 60 passwords based on a set of rules, which by default include all uppercase characters, lowercase characters, numbers, symbols, and each password has 20 length.
 
-pwgen is derived from the gopass command which does not meet my needs for generated password strength, so for security reasons I developed my own pwgen. 
+pwgen is derived from the gopass command which does not meet my needs for exclude some characters from password, so I developed my own pwgen. 
 
 ## How to Install
 
